@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tinder_clone/data/likes_json.dart';
 import 'package:tinder_clone/theme/colors.dart';
+import 'dart:ui';
 
 class LikesPage extends StatefulWidget {
   @override
@@ -78,64 +79,66 @@ class _LikesPageState extends State<LikesPage> {
                                 black.withOpacity(0),
                               ],
                               end: Alignment.topCenter,
-                              begin: Alignment.bottomCenter)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          likes_json[index]['active']
-                              ? Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 8, bottom: 8),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 8,
-                                        height: 8,
-                                        decoration: BoxDecoration(
-                                            color: green,
-                                            shape: BoxShape.circle),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        "Recently Active",
-                                        style: TextStyle(
-                                          color: white,
-                                          fontSize: 14,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              : Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 8, bottom: 8),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 8,
-                                        height: 8,
-                                        decoration: BoxDecoration(
-                                            color: grey,
-                                            shape: BoxShape.circle),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        "Offline",
-                                        style: TextStyle(
-                                          color: white,
-                                          fontSize: 14,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                        ],
+                              begin: Alignment.bottomCenter
+                          )
                       ),
-                    )
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            likes_json[index]['active']
+                                ? Padding(
+                              padding: const EdgeInsets.only(left: 8, bottom: 8),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                        color: green,
+                                        shape: BoxShape.circle
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    "Recently Active",
+                                    style: TextStyle(
+                                      color: white,
+                                      fontSize: 14,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                                : Padding(
+                              padding: const EdgeInsets.only(left: 8, bottom: 8),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                        color: grey,
+                                        shape: BoxShape.circle
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    "Offline",
+                                    style: TextStyle(
+                                      color: white,
+                                      fontSize: 14,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
                   ],
                 ),
               );

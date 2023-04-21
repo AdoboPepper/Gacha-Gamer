@@ -37,7 +37,7 @@ class _LogInState extends State<LogIn> {
               ),
 
               Text(
-                'GACHA\nGAMER',
+                'GOTCHA',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 60,

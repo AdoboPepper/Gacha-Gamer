@@ -3,6 +3,8 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:tinder_clone/data/account_json.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
+import 'edit_profile_page.dart';
+
 class AccountPage extends StatefulWidget {
   String firstName;
   String age;
@@ -84,7 +86,7 @@ class _AccountPageState extends State<AccountPage> {
                         child: Icon(
                           Icons.settings,
                           size: 35,
-                          color: grey.withOpacity(0.5),
+                          color: primary,
                         ),
                       ),
                       SizedBox(
@@ -183,11 +185,20 @@ class _AccountPageState extends State<AccountPage> {
                                 blurRadius: 15,
                                 // changes position of shadow
                               ),
-                            ]),
-                        child: Icon(
-                          Icons.edit,
-                          size: 35,
-                          color: grey.withOpacity(0.5),
+                            ]
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => DatingProfilePage()),
+                            );
+                          },
+                          child: Icon(
+                            Icons.edit,
+                            size: 35,
+                            color: primary,
+                          ),
                         ),
                       ),
                       SizedBox(
